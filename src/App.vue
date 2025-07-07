@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
@@ -11,7 +10,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <HelloWorld msg="You did it!" />
     <div class="container mt-5">
       <h1 class="text-primary">Hello, Bootstrap + Vue + Vite!</h1>
-      <button class="btn btn-success">Click me</button>
+      <button class="btn btn-success col-lg-5">Click me</button>
     </div>
 
       <nav>
