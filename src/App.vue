@@ -5,6 +5,7 @@ import {ref} from 'vue';
 const name=ref('john');
 const status=ref('active');
 const tasks=ref(['task one','task two', 'task three']);
+const newTask=ref();
 
 const toggleStatus=()=>{
   if(status.value==='active'){
@@ -14,7 +15,18 @@ const toggleStatus=()=>{
   }else{
     status.value='active';
   }
-}
+};
+
+const addTask=()=>{
+  if(newTask.value.trim() !==''){
+    tasks.value.push(newTask.value);
+    newTask.value='';
+  }
+};
+
+const deleteTask=(index)=>{
+  tasks.value.splice(index,1);
+};
 
 </script>
 
@@ -45,10 +57,23 @@ const toggleStatus=()=>{
       <p v-else>User is inactive</p>
       <br>
 
+      <form @submit.prevent="addTask">
+        <label for="newTask">Add Task</label>
+        <input type="text" id="newTask" name="newTask" v-model="newTask">
+        <button type="submit">Submit</button>
+      </form>
+
       <h3>Task:</h3>
       <br>
       <ul>
-        <li v-for="task in tasks" :key="task">{{ task }}</li>
+        <li v-for="(task, index) in tasks" :key="index">
+          <span>
+            {{ task }}
+
+          </span>
+          <button @click="deleteTask(index)">x</button>
+          
+          </li>
       </ul>
       <br>
       <button @click="toggleStatus">Change Status</button>
