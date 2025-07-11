@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import {ref} from 'vue';
+import {ref, onMounted} from 'vue';
 
 const name=ref('john');
 const status=ref('active');
@@ -27,6 +27,18 @@ const addTask=()=>{
 const deleteTask=(index)=>{
   tasks.value.splice(index,1);
 };
+
+onMounted(async ()=>{
+  try{
+    const response =await fetch('https://jsonplaceholder.typicode.com/todos');
+    const data=await response.json();
+    tasks.value=data.map((task)=>task.title)
+    
+  }catch (error){
+    console.log('error fetching tasks')
+
+  }
+})
 
 </script>
 
