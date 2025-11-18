@@ -11,9 +11,10 @@ import "element-plus/dist/index.css";
 //GSAP(animations)
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { TextPlugin } from "gsap/TextPlugin";
 
 // register GSAP (animations)
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger,TextPlugin);
 
 // import pinia
 import { createPinia } from "pinia";

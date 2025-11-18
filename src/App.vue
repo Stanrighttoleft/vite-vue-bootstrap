@@ -5,16 +5,21 @@ import RippleButton from "./components/RippleButton.vue";
 </script>
 
 <template>
-  <header>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-    </nav>
-  </header>
-  <main class="d-flex flex-column">
-    <RouterView />
-    <!-- Your routed pages appear here -->
-  </main>
+  <div class="containter-fluid app">
+    
+        <RouterView />
+        <!-- Your routed pages appear here -->
+  </div>
+  
+
 </template>
 
-<style scoped></style>
+<style >
+
+.app{
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+}
+</style>
