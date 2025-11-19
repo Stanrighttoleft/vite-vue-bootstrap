@@ -17,8 +17,8 @@ import RippleButton from "./components/RippleButton.vue";
 <style >
 
 .app{
-  display: flex;
-  justify-content: center;
+
+
 
   width: 100%;
 }

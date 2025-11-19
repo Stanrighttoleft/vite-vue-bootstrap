@@ -1,11 +1,11 @@
 <template>
-  <div class="row" >
-    
-    <!-- fiexed background -->
-  <section class="homeHeader hero" ref="hero" :style="{...bgstyle}">
+  <div  style="overflow:hidden; width: 100%;" >
     <div ref="homeNavbar" class="fixed-navbar"><Navbar/></div>
+    <!-- fiexed background -->
+  <section class="homeHeader hero"  ref="hero" :style="{...bgstyle}" >
     
-    <div class="hero-content">
+    
+    <div class="hero-content" style=" width:100%;">
       <h1 ref="title" class="animate-text"><span style="color: bisque;"> 短期任務</span>賺外快</h1>
       <h3 ref="subtitle" style="text-align: left;">都是你未來的 <span style="color: bisque;">好幫手</span></h3>
       <p ref="paragraph" class="animate-scroll">
@@ -45,9 +45,8 @@ const bgstyle=computed(()=>({
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   height:'100vh',
-  
   transition: 'background-image 1.4s ease-in-out',
-  marginTop:'0',
+  marginTop:'60px',
 }));
 // text refs
 const title = ref(null);
@@ -100,19 +99,28 @@ onMounted(async()=>{
   ScrollTrigger.create({
     trigger:hero.value,
     start:"top top",
-    end:"+=2000px",
+    end:"+=700px",
     pin:true,
-    pinSpacing:true,
+    pinSpacing:false,
+     onLeave: () => {
+    homeNavbar.value.classList.add("fixed")
+  },
+  onEnterBack: () => {
+    homeNavbar.value.classList.remove("fixed")
+  }
   });
   // Navbar color change on scroll
   ScrollTrigger.create({
-    trigger:hero.value,
-    start:"bottom top",
-    onEnter:()=>homeNavbar.value.classList.remove("scrolled"),
-    onLeaveBack:()=>homeNavbar.value.classList.add("scrolled")
+    start:0,
+    onUpdate:(self)=>{
+      if(self.scroll()>80){
+        homeNavbar.value.classList.add("scrolled");
+      }else{
+        homeNavbar.value.classList.remove("scrolled")
+      }
+    }
   })
   
-
  
 });
 
@@ -128,17 +136,22 @@ watch(index, ()=>{
   width: 100%;
 }
 .fixed-navbar{
-  
   transition: background-color 0.3s ease;
   background-color: transparent;
+  width: 100%;
+   position: fixed;
+  top: 0;
+  left: 0;
+  z-index:100;
 }
 .fixed-navbar.scrolled {
   background-color: rgba(0, 0, 0, 0.9); /* change on scroll */
-  position: fixed;
+  width: 100%;
   z-index: 100;
   top: 0;
   left: 0;
 }
+
 .animate-text {
   font-size: 3rem;
   font-weight: bold;
@@ -156,7 +169,7 @@ watch(index, ()=>{
 /* fullscreen fixed hero section */
 .hero{
   height: 100vh;
-
+  width: 100%;
   background-size: cover;
   background-position: center;
 }
@@ -170,11 +183,17 @@ watch(index, ()=>{
 
 /* second section */
 .section-2{
+  width: 100%;
   height: 100vh;
   background: white;
   padding: 80px;
-  z-index: 2;
+ 
   position: relative;
+}
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 </style>
