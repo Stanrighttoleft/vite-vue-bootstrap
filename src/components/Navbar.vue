@@ -1,5 +1,5 @@
 <template>
-  <div  class="bg-carousel">
+  
     <el-menu
       :default-active="activeIndex"
       class="el-menu-demo"
@@ -8,7 +8,7 @@
       @select="handleSelect"
       background-color="transparent"
       text-color="white"
-      style="border: none;"
+      style="border: none; width: 100%; max-width: 1920px; "
           
     >
     <el-menu-item index="0">
@@ -38,7 +38,7 @@
         </el-sub-menu>
       </el-sub-menu>
     </el-menu>
-  </div>
+
 </template>
 
 <script lang="ts" setup>
@@ -57,6 +57,16 @@ const handleSelect = (key: string, keyPath: string[]) => {
   margin-right: auto;
 }
 
-
+/* correct underline override for Element Plus 2.x */
+:deep(.el-menu-item.is-active){
+  border-bottom: none !important;
+}
+:deep(.el-menu-item){
+  border-bottom: none !important;
+}
+:deep(.el-menu-item){
+  font-size: 18px !important;
+  font-weight: 600;
+}
 
 </style>
