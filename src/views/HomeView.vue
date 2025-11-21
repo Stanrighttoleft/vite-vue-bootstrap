@@ -5,7 +5,7 @@
             <el-col :span="24">
               <div class="homeHeader hero grid-content"  ref="hero" :style="{...bgstyle,width:'100%'}" >
                 <div class="hero-content" style=" width:100%;">
-                  <div ref="homeNavbar" class="fixed-navbar grid-content"><Navbar/></div>
+                  <div ref="homeNavbar" class="fixed-navbar grid-content" style="max-width:1920px ;"><Navbar/></div>
                   <div class="showContent" style="padding-left: 5%; padding-top: 15%;">
                     <h1 ref="title" class="animate-text"><span style="color: bisque;"> 短期任務</span>賺外快</h1>
                     <h3 ref="subtitle" class="subtitle" style="text-align: left;">都是你未來的 <span style="color: bisque;">好幫手</span></h3>
@@ -15,19 +15,32 @@
                   </div>
                 </div>
               </div>
-              <!-- scroll space for 200vh -->
-               <section class="spacer"></section>
-            
-              <!-- next section appear here -->
-               <section class="section-2">
-                <h2>短期任務賺外快</h2>
-                <p>這個社區需要你，有多餘的時間不知道如何利用，<br>
+            </el-col>
+          </el-row>
+          <el-row >
+            <el-col span="24" class="aboutArea" style="height: 1000vh; width: 100%;">
+              <div class="aboutbox">
+                <div class="bgCircle">
 
-                想找點事情做，想找專業的人來做，想找有經驗的人來做，想找點事情做，想找專業的人來做，想找有經驗的人來做，<span style="color: bisque; text-decoration: overline;">這裡就是您找到好幫手的地方！</span></p>
-               </section>
-                <div class="row">
-                
                 </div>
+                <div class="textDecBox" style="text-align: center;">
+                  <div class="decText">
+                    <h1 style="color:white;font-weight: 700; font-size: 60px; text-shadow: 5px 5px 15px grey;">好幫手好任務</h1>
+
+                    <!-- hidden content that fade in later -->
+                     <h2 class="dec-h2">你最好的任務平台</h2>
+                     <h3 class="dec-h3">快速、方便、可靠</h3>
+                  </div>
+
+                </div>
+                <div class="linkBox">
+
+                </div>
+                <div class="textarea">
+
+                </div>
+              </div>
+
             </el-col>
           </el-row>
         </div>
@@ -67,10 +80,52 @@ let splits=[];
 const homeNavbar=ref(null);
 
 
-
-
-// background interval function
 onMounted(()=>{
+  //fade-h2 and h3 after the h1 reach scroll position
+  gsap.timeline({
+    scrollTrigger:{
+      trigger:".aboutbox",
+      start:"top top",
+      toggleActions:"play none none reverse"
+    }
+  })
+  .to(".dec-h2",{
+    opacity:1,
+    y:0,
+    duration:0.6,
+    ease:"power2.out"
+  })
+  .to(".dec-h3",{
+    opacity:1,
+    y:0,
+    duration:0.6,
+    ease:"power.out"
+  },"-=0.3")
+  // change color when the text pass about area
+  gsap.to(".decText h1", {
+  color: "#4169e1",
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".aboutArea",
+    start: "top center",      // when aboutArea reaches the top of viewport
+    toggleActions: "play none none reverse",
+  }
+  });
+
+  // text-dec box animation
+  const heroEl=hero.value;
+  const heroHeight=heroEl.offsetHeight;
+
+  gsap.timeline({
+    scrollTrigger:{
+      trigger:document.body,
+      start:"top top",
+      end:()=>heroHeight,
+      scrub:1,
+    }
+  })
+  .to(".decText",{opacity:1})
+  .to(".decText",{y:+400})
 
   // Select all target text elements
   const targets=[".animate-text",".subtitle",".animate-scroll"];
@@ -100,14 +155,14 @@ onMounted(()=>{
     start:"top -50",
     onEnter:()=>{
       gsap.to(homeNavbar.value,{
-        backgroundColor:"white",
-        color:"black",
+        backgroundColor:"black",
+        color:"white",
         paddingTop:0,
         duration:0.3
       });
       //change menu & button text
       gsap.to(homeNavbar.value.querySelectorAll('.el-menu-item, .el-button'),{
-        color:"black",
+        color:"white",
         duration:0.3
       });
     },
@@ -123,6 +178,15 @@ onMounted(()=>{
         duration:0.3
       })
     }
+  })
+  //pin the aboutbox
+  ScrollTrigger.create({
+    trigger:".aboutbox",
+    start:"top top",
+    endTrigger:'.aboutArea',
+    end:"bottom bottom",
+    pin:true,
+    pinSpacing:true
   })
 });
 
@@ -166,7 +230,7 @@ onBeforeUnmount(()=>{
 
 <style>
 .homepage{
-  height: 500vh;
+  height: 2000vh;
   width: 100%;
   max-width: 1920px;
   background-color: black;
@@ -207,23 +271,46 @@ onBeforeUnmount(()=>{
 }
 /* center text */
 .hero-content{
-  
   text-align: center;
   color: white;
 }
 /* spacer make the 200vh scroll*/
 
 /* second section */
-.section-2{
-  width: 100%;
-  height: 100vh;
-  background: white;
 
-}
 html, body {
   width: 100%;
   margin: 0;
   padding: 0;
+}
+.aboutbox{
+  width: 100%;
+  height: 100vh;
+  background-image:url("/coverbox.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.decText {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  opacity: 0;
+  pointer-events: none;
+}
+.aboutArea{
+  position: relative;
+
+}
+.textDecBox {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  height: 100vh;
+}
+.dec-h2,.dec-h3{
+  opacity:0;
+  transform:translateY(50px);
 }
 
 
