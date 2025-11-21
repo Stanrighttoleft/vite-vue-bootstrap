@@ -34,6 +34,24 @@
 
                 </div>
                 <div class="linkBox">
+<div class="aboutCards">
+  <div class="card card-1">
+    <img src="/s1.png" alt="">
+    <p>Intro 1</p>
+  </div>
+  <div class="card card-2">
+    <img src="/s2.png" alt="">
+    <p>Intro 2</p>
+  </div>
+  <div class="card card-3">
+    <img src="/s3.png" alt="">
+    <p>Intro 3</p>
+  </div>
+  <div class="card card-4">
+    <img src="/s4.png" alt="">
+    <p>Intro 4</p>
+  </div>
+</div>
 
                 </div>
                 <div class="textarea">
@@ -81,26 +99,28 @@ const homeNavbar=ref(null);
 
 
 onMounted(()=>{
-  //fade-h2 and h3 after the h1 reach scroll position
+  // add cards animation
+  const cards = gsap.utils.toArray(".aboutCards .card");
+
   gsap.timeline({
-    scrollTrigger:{
-      trigger:".aboutbox",
-      start:"top top",
-      toggleActions:"play none none reverse"
+    scrollTrigger: {
+      trigger: ".aboutArea",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true,
+      pin: true // pin the aboutArea while scrolling
     }
   })
-  .to(".dec-h2",{
-    opacity:1,
-    y:0,
-    duration:0.6,
-    ease:"power2.out"
-  })
-  .to(".dec-h3",{
-    opacity:1,
-    y:0,
-    duration:0.6,
-    ease:"power.out"
-  },"-=0.3")
+  .to(cards[0], { opacity: 1, y: 0, duration: 0.5 })
+  .to(cards[0], { opacity: 0, y: 20, duration: 0.5 })
+  .to(cards[1], { opacity: 1, y: 0, duration: 0.5 })
+  .to(cards[1], { opacity: 0, y: 20, duration: 0.5 })
+  .to(cards[2], { opacity: 1, y: 0, duration: 0.5 })
+  .to(cards[2], { opacity: 0, y: 20, duration: 0.5 })
+  .to(cards[3], { opacity: 1, y: 0, duration: 0.5 })
+  .to(cards[3], { opacity: 0, y: 20, duration: 0.5 })
+  
+
   // change color when the text pass about area
   gsap.to(".decText h1", {
   color: "#4169e1",
@@ -283,13 +303,7 @@ html, body {
   margin: 0;
   padding: 0;
 }
-.aboutbox{
-  width: 100%;
-  height: 100vh;
-  background-image:url("/coverbox.jpg");
-  background-position: center;
-  background-size: cover;
-}
+
 .decText {
   position: absolute;
   top: 0;
@@ -302,6 +316,14 @@ html, body {
   position: relative;
 
 }
+.aboutbox{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image:url("/coverbox.jpg");
+  background-position: center;
+  background-size: cover;
+}
 .textDecBox {
   position: relative;
   overflow: visible;
@@ -312,6 +334,17 @@ html, body {
   opacity:0;
   transform:translateY(50px);
 }
+.aboutCards .card{
+  position:absolute;
+  width: 200px;
+  opacity: 0;
+  transition: none;
+  transform: translateY(50px); /* slide up as they fade in */
+}
+.card-1 { top: 20%; left: 20%; }
+.card-2 { top: 20%; right: 20%; }
+.card-3 { bottom: 25%; left: 20%; }
+.card-4 { bottom: 25%; right: 20%; }
 
 
 </style>
