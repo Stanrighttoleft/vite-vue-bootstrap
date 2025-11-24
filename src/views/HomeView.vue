@@ -1,173 +1,421 @@
 <template>
-  <div style="overflow: hidden; width: 100%">
-    <!-- fiexed background -->
-
-    <section class="homeHeader hero" ref="hero" :style="{ ...bgstyle }">
-      <div ref="homeNavbar" class="fixed-navbar">
-        <Navbar />
-      </div>
-      <div class="hero-content" style="width: 100%; padding-top: 50px">
-        <h1 ref="title" class="animate-text">
-          <span style="color: bisque"> 短期任務</span>賺外快
-        </h1>
-        <h3 ref="subtitle" style="text-align: left">
-          都是你未來的 <span style="color: bisque">好幫手</span>
-        </h3>
-        <p ref="paragraph" class="animate-scroll">
-          這個社區需要你，有多餘的時間不知道如何利用，想找點事情做，想找專業的人來做，想找有經驗的人來做，<span
-            style="color: bisque; text-decoration: underline"
-            >這裡就是您找到好幫手的地方！</span
-          >
-        </p>
-      </div>
-    </section>
-    <!-- scroll space for 200vh -->
-    <section class="spacer"></section>
-
-    <!-- next section appear here -->
-    <section class="section-2">
-      <h2>短期任務賺外快</h2>
-      <p>
-        這個社區需要你，有多餘的時間不知道如何利用，想找點事情做，想找專業的人來做，想找有經驗的人來做，<span
-          style="color: bisque; text-decoration: overline"
-          >這裡就是您找到好幫手的地方！</span
+  <div class="homepage" style="max-width: 1920px">
+    <el-row style="width: 100%; max-width: 1920px; position: relative">
+      <el-col :span="24" style="display: flex; justify-content: center">
+        <div
+          class="homeHeader hero grid-content"
+          ref="hero"
+          :style="{ ...bgstyle, width: '100%' }"
         >
-      </p>
-    </section>
-    <div class="row"></div>
+          <div class="hero-content" style="width: 100%">
+            <div
+              ref="homeNavbar"
+              class="fixed-navbar grid-content"
+              style="max-width: 1920px"
+            >
+              <Navbar />
+            </div>
+            <div class="showContent" style="padding-left: 5%; padding-top: 15%">
+              <h1 ref="title" class="animate-text">
+                <span style="color: bisque"> 澳町購貨</span>最原裝
+              </h1>
+              <h3 ref="subtitle" class="subtitle" style="text-align: left">
+                想要的商品 <span style="color: bisque">海外直送</span>
+              </h3>
+              <p ref="paragraph" class="animate-scroll">
+                想要澳洲特有的產品，<br />知道有這東西的存在但是市面上買不到，<br />想找專業的人來做，想找有經驗的人來做，<br /><span
+                  style="color: bisque; text-decoration: underline"
+                  >這裡就是您找到好幫手的地方！</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col
+        :span="24"
+        class="aboutArea"
+        style="height: 500vh; width: 100%; max-width: 1920px"
+      >
+        <div class="aboutbox-wrapper">
+          <div class="aboutbox" style="overflow: hidden">
+            <div class="bgCircle" ref="bgCircle"></div>
+            <div class="textDecBox" style="text-align: center">
+              <div class="decText">
+                <h1
+                  class="decTexth1"
+                  style="
+                    color: white;
+                    font-weight: 700;
+                    font-size: 72px;
+                    text-shadow: 5px 5px 15px grey;
+                  "
+                >
+                  澳町海外代購
+                </h1>
+
+                <!-- hidden content that fade in later -->
+                <div class="decsub">
+                  <h2 class="dec-2" style="color: white">你最好的任務平台</h2>
+                  <h3 class="dec-3" style="color: white">快速、方便、可靠</h3>
+
+                  <h2 class="dec-4" style="color: white; margin-top: 30%">
+                    您澳洲代購的專業平台，從在澳洲的購買到送貨，到進到台灣最後送到府上，你可以信賴的購貨平台。
+                  </h2>
+                  <el-button type="warning" size="large">了解更多</el-button>
+                </div>
+              </div>
+            </div>
+            <!-- the cards section -->
+            <div class="linkBox">
+              <div class="aboutCards">
+                <div class="card card-1">
+                  <img src="/p11.jpg" alt="" />
+                  <p>在澳洲當地尋找最合適的通路來採購保證品質</p>
+                </div>
+                <div class="card card-2">
+                  <img src="/p12.jpg" alt="" />
+                  <p>
+                    用最安全保障的方法來包裝物品，保障運送的過程維持該產品的品質
+                  </p>
+                </div>
+                <div class="card card-3">
+                  <img src="/p13.jpg" alt="" />
+                  <p>與專業安全的通路配合確保貨物在運送時維持最佳狀況</p>
+                </div>
+                <div class="card card-4">
+                  <img src="/p14.jpg" alt="" />
+                  <p>了解當地法規以及進出口流程確保貨物順利進出</p>
+                </div>
+                <div class="card card-5">
+                  <img src="/p15.jpg" alt="" />
+                  <p>與當地的物流配合，讓貨物安全快速到家</p>
+                </div>
+                <div class="card card-6">
+                  <img src="/p16.jfif" alt="" />
+                  <p>確保貨物安全到您的手中</p>
+                </div>
+              </div>
+            </div>
+            <div class="textarea"></div>
+          </div>
+        </div>
+      </el-col>
+    </el-row>
+    <el-row style="padding: 0; margin: 0; border: 0">
+      <el-col
+        :span="24"
+        style="background-color: white; width: 100%; height: 200vh"
+      >
+        <div class="newsArea">
+          <div class="newsWrap" style="margin-top: 100px">
+            <div class="titleBox" style="text-align: center">
+              <h1>最新消息</h1>
+              <h3>不錯過任何資訊</h3>
+            </div>
+            <div class="carousalBox">
+              <el-carousel height="500px">
+                <el-carousel-item
+                  v-for="(item, index) in displayList"
+                  :key="index"
+                >
+                  <h3 class="small justify-center" text="2xl">
+                    {{ item.name }}
+                  </h3>
+                  <img
+                    :src="'/' + item.image"
+                    alt=""
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </el-carousel-item>
+              </el-carousel>
+
+              <div class="newsBox" style="text-align: center">
+                <h1>網頁變動</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch, nextTick } from "vue";
-import Navbar from "../components/Navbar.vue";
+import {
+  ref,
+  computed,
+  onMounted,
+  watch,
+  nextTick,
+  onBeforeUnmount,
+} from "vue";
+import Navbar from "@/components/Navbar.vue";
+import gsap from "gsap";
+import SplitText from "gsap/SplitText";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 // background slideshow
-const images = ["/1.avif", "2.avif"];
+const images = ["/1.jpg", "/2.jpg"];
 const index = ref(0);
+let intervalId = null;
 const hero = ref(null);
 const bgstyle = computed(() => ({
   backgroundImage: `url(${images[index.value]})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   height: "100vh",
+
   transition: "background-image 1.4s ease-in-out",
-  marginTop: "60px",
 }));
 // text refs
 const title = ref(null);
 const paragraph = ref(null);
 const subtitle = ref(null);
-// navbar ref variable
+// text animation everytime the background changed
+let tline = null;
+let splits = [];
+// change navbar style
 const homeNavbar = ref(null);
+// bigcircle animation
+const bgCircle = ref(null);
+// the carousal item
+const displayList = ref([
+  { name: "1", image: "p11.jpg" },
+  { name: "2", image: "p12.jpg" },
+  { name: "3", image: "p13.jpg" },
+]);
 
-function runTextAnimation() {
-  const tl = gsap.timeline();
+onMounted(() => {
+  nextTick(() => {
+    //---- add the newsarea section animation ----
+    const newsArea = document.querySelector(".newsArea");
+    const titleBox = newsArea.querySelector(".titleBox");
+    const carousalBox = newsArea.querySelector(".carousalBox");
+    const newsBox = newsArea.querySelector(".newsBox");
 
-  tl.set([title.value, subtitle.value, paragraph.value], {
-    opacity: 0,
-    y: 20,
+    //initial state
+    gsap.set([titleBox, carousalBox, newsBox], { opacity: 0, y: 50 });
+
+    // timeline for scroll animation
+    const newsTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: newsArea,
+        start: "top top",
+        end: "bottom+=200% top",
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+      },
+    });
+    // Fade in title, carousel, news box one by one
+    newsTL
+      .to(titleBox, { opacity: 1, y: 0, duration: 0.8 })
+      .to(carousalBox, { opacity: 1, y: 0, duration: 0.8 }, "+=0.2")
+      .to(newsBox, { opacity: 1, y: 0, duration: 0.8 }, "+=0.2");
+
+    // ---- aboutArea section animation ----
+    // add cards animation
+    const cards = gsap.utils.toArray(".aboutCards .card");
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".aboutArea",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+          pin: true, // pin the aboutArea while scrolling
+        },
+      })
+      .to(cards[0], { opacity: 1, y: 0, duration: 0.5 })
+      .to(cards[0], { opacity: 0, y: 20, duration: 0.5 })
+      .to(cards[1], { opacity: 1, y: 0, duration: 0.5 })
+      .to(cards[1], { opacity: 0, y: 20, duration: 0.5 })
+      .to(cards[2], { opacity: 1, y: 0, duration: 0.5 })
+      .to(cards[2], { opacity: 0, y: 20, duration: 0.5 })
+      .to(cards[3], { opacity: 1, y: 0, duration: 0.5 })
+      .to(cards[3], { opacity: 0, y: 20, duration: 0.5 })
+      .to(cards[4], { opacity: 1, y: 0, duration: 0.5 })
+      .to(cards[4], { opacity: 0, y: 20, duration: 0.5 })
+      .to(cards[5], { opacity: 1, y: 0, duration: 0.5 })
+      .to(cards[5], { opacity: 0, y: 20, duration: 0.5 })
+      // bigcircle animation
+      .to(bgCircle.value, { scale: 60, duration: 0.5, ease: "none" });
+
+    // change color when the text pass about area
+    gsap.to(".decTexth1", {
+      color: "white",
+      textShadow: "5px 5px 15px brown",
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".aboutArea",
+        start: "top center", // when aboutArea reaches the top of viewport
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    // text-dec box animation
+    const heroEl = hero.value;
+    const heroHeight = heroEl.offsetHeight;
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          // end:()=>heroHeight,
+          end: "bottom top",
+          scrub: 1,
+        },
+      })
+      .to(".decText", { opacity: 1 })
+      .to(".decText", { y: +200 });
+
+    //show the deco text h2 h3
+    gsap.to(".decsub", {
+      scrollTrigger: {
+        trigger: ".aboutbox",
+        start: "top top",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 1,
+      y: 50,
+      duration: 1,
+      stagger: 0.3,
+    });
+
+    // Select all target text elements
+    const targets = [".animate-text", ".subtitle", ".animate-scroll"];
+
+    // apply split animation to each element
+    targets.forEach((selector) => {
+      const s1 = new SplitText(selector, {
+        type: "lines",
+        linesClass: "lineChild",
+      });
+      const s2 = new SplitText(selector, {
+        type: "lines",
+        linesClass: "lineParent",
+      });
+      splits.push({ s1, s2 });
+    });
+    // start slideshow
+    intervalId = setInterval(() => {
+      index.value = (index.value + 1) % images.length;
+    }, 6000);
+
+    // run the animation once at mount
+    playTextAnimation();
+    // Scroll trigger navbar effect
+    ScrollTrigger.create({
+      trigger: document.body,
+      start: "top -50",
+      onEnter: () => {
+        gsap.to(homeNavbar.value, {
+          backgroundColor: "black",
+          color: "white",
+          paddingTop: 0,
+          duration: 0.3,
+        });
+        //change menu & button text
+        gsap.to(
+          homeNavbar.value.querySelectorAll(".el-menu-item, .el-button"),
+          {
+            color: "white",
+            duration: 0.3,
+          }
+        );
+      },
+      onLeaveBack: () => {
+        gsap.to(homeNavbar.value, {
+          backgroundColor: "transparent",
+          color: "white",
+          paddingTop: "15px",
+          duration: 0.3,
+        });
+        gsap.to(
+          homeNavbar.value.querySelectorAll(".el-menu-item, .el-button"),
+          {
+            color: "white",
+            duration: 0.3,
+          }
+        );
+      },
+    });
+    // Always center the pinned aboutbox-wrapper in the center
   });
+});
 
-  tl.to(title.value, {
-    opacity: 1,
-    y: 0,
-    duration: 1.2,
-    ease: "power2.out",
-  })
-    .to(
-      subtitle.value,
+// Watch background change and replay animation
+watch(index, () => {
+  playTextAnimation();
+});
+
+// Main animation function
+function playTextAnimation() {
+  if (tline) tline.kill();
+  tline = gsap.timeline();
+  tline
+    .from(".animate-text .lineChild", {
+      duration: 0.9,
+      yPercent: 100,
+      stagger: 0.15,
+      ease: "power3.out",
+    })
+
+    .from(
+      ".subtitle .lineChild",
       {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        ease: "power2.out",
+        duration: 0.9,
+        yPercent: 100,
+        stagger: 0.12,
+        ease: "power3.out",
       },
-      "+=0.1"
-    )
-    .to(
-      paragraph.value,
+      "+=0.2"
+    ) // small delay before next block
+
+    .from(
+      ".animate-scroll .lineChild",
       {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        ease: "power2.out",
+        duration: 0.9,
+        yPercent: 100,
+        stagger: 0.1,
+        ease: "power3.out",
       },
-      "+=0.1"
+      "+=0.2"
     );
-
-  return tl;
 }
 
-// onMounted(async () => {
-//   await nextTick();
-//   // Initial fade for the first load
-//   runTextAnimation();
-
-//   // change background every 5s
-//   setInterval(() => {
-//     index.value = (index.value + 1) % images.length;
-//   }, 5000);
-
-// pin hero until 200vh
-// ScrollTrigger.create({
-//   trigger: hero.value,
-//   start: "top top",
-//   end: "+=700px",
-//   pin: true,
-//   pinSpacing: false,
-//   onLeave: () => {
-//     homeNavbar.value.classList.add("fixed");
-//   },
-//   onEnterBack: () => {
-//     homeNavbar.value.classList.remove("fixed");
-//   },
-// });
-// Navbar color change on scroll
-// ScrollTrigger.create({
-//   start: 0,
-//   onUpdate: (self) => {
-//     if (self.scroll() > 80) {
-//       homeNavbar.value.classList.add("scrolled");
-//     } else {
-//       homeNavbar.value.classList.remove("scrolled");
-//     }
-//   },
-// });
-// });
-
-// watch background index and animate title+paragraph
-watch(index, () => {
-  runTextAnimation();
+onBeforeUnmount(() => {
+  clearInterval(intervalId);
 });
 </script>
 
 <style>
 .homepage {
-  height: 500vh;
+  height: 2000vh;
   width: 100%;
+  max-width: 1920px;
+  background-color: black;
 }
 .fixed-navbar {
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   background-color: transparent;
-
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-}
-.fixed-navbar.scrolled {
-  background-color: rgba(0, 0, 0, 0.9); /* change on scroll */
   width: 100%;
-  z-index: 100;
   top: 0;
-  left: 0;
-}
 
+  z-index: 100;
+}
+/* animate the text */
+.lineParent {
+  overflow: hidden;
+}
 .animate-text {
   font-size: 3rem;
   font-weight: bold;
-  margin-top: 100px;
   text-align: left;
   color: white;
 }
@@ -175,7 +423,6 @@ watch(index, () => {
 .animate-scroll {
   text-align: left;
   font-size: 1.5rem;
-  margin: 50px 0;
   color: white;
 }
 /* fullscreen fixed hero section */
@@ -184,6 +431,7 @@ watch(index, () => {
   width: 100%;
   background-size: cover;
   background-position: center;
+  transition: background-image 1.5s ease-in-out, opacity 1s ease-in-out;
 }
 /* center text */
 .hero-content {
@@ -193,18 +441,115 @@ watch(index, () => {
 /* spacer make the 200vh scroll*/
 
 /* second section */
-.section-2 {
-  width: 100%;
-  height: 100vh;
-  background: white;
-  padding: 80px;
 
-  position: relative;
-}
 html,
 body {
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+.decText {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.decsub {
+  opacity: 0;
+}
+.aboutArea {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.aboutbox-wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
+.aboutbox {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("/coverbox.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.textDecBox {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.dec-h2,
+.dec-h3 {
+  opacity: 0;
+  transform: translateY(50px);
+}
+.aboutCards .card {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  opacity: 0;
+  transition: none;
+  transform: translateY(50px); /* slide up as they fade in */
+  z-index: 1;
+  border-radius: 50%;
+  color: white;
+}
+.aboutCards .card img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-1 {
+  top: 20%;
+  left: 10%;
+}
+.card-2 {
+  top: 20%;
+  right: 15%;
+}
+.card-3 {
+  bottom: 35%;
+  left: 10%;
+}
+.card-4 {
+  bottom: 35%;
+  right: 15%;
+}
+.card-5 {
+  top: 40%;
+  left: 15%;
+}
+.card-6 {
+  top: 40%;
+  right: 15%;
+}
+/* the cirle image */
+.bgCircle {
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 10;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 </style>

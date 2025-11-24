@@ -1,11 +1,23 @@
+<script setup>
+import { RouterLink, RouterView } from "vue-router";
+import { ref, onMounted } from "vue";
+</script>
+
 <template>
-  <div id="app">
-    <router-view />
+  <div class="app">
+    <RouterView />
+    <!-- Your routed pages appear here -->
   </div>
 </template>
 
-<script setup>
-// No script needed yet if you don't have dynamic logic
-</script>
-
-<style></style>
+<style>
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: black;
+}
+</style>
