@@ -1,25 +1,11 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-import { ref, onMounted } from "vue";
-import RippleButton from "./components/RippleButton.vue";
-</script>
-
 <template>
-  <div class="containter-fluid app">
-    
-        <RouterView />
-        <!-- Your routed pages appear here -->
+  <div id="app">
+    <router-view />
   </div>
-  
-
 </template>
 
-<style >
+<script setup>
+// No script needed yet if you don't have dynamic logic
+</script>
 
-.app{
-
-
-
-  width: 100%;
-}
-</style>
+<style></style>
