@@ -1,16 +1,16 @@
 <template>
 
-        <div class="homepage">
-          <el-row style="width:100%;">
-            <el-col :span="24">
+        <div class="homepage" style="max-width: 1920px; ">
+          <el-row style="width:100%; max-width: 1920px; position: relative;">
+            <el-col :span="24" style="display:flex; justify-content: center;">
               <div class="homeHeader hero grid-content"  ref="hero" :style="{...bgstyle,width:'100%'}" >
                 <div class="hero-content" style=" width:100%;">
-                  <div ref="homeNavbar" class="fixed-navbar grid-content" style="max-width:1920px ;"><Navbar/></div>
+                  <div ref="homeNavbar" class="fixed-navbar grid-content" style=" max-width:1920px ;"><Navbar/></div>
                   <div class="showContent" style="padding-left: 5%; padding-top: 15%;">
-                    <h1 ref="title" class="animate-text"><span style="color: bisque;"> 短期任務</span>賺外快</h1>
-                    <h3 ref="subtitle" class="subtitle" style="text-align: left;">都是你未來的 <span style="color: bisque;">好幫手</span></h3>
+                    <h1 ref="title" class="animate-text"><span style="color: bisque;"> 澳町購貨</span>最原裝</h1>
+                    <h3 ref="subtitle" class="subtitle" style="text-align: left;">想要的商品 <span style="color: bisque;">海外直送</span></h3>
                     <p ref="paragraph" class="animate-scroll">
-                      這個社區需要你，<br>有多餘的時間不知道如何利用，想找點事情做，<br>想找專業的人來做，想找有經驗的人來做，<br><span style="color: bisque; text-decoration: underline;">這裡就是您找到好幫手的地方！</span>
+                      想要澳洲特有的產品，<br>知道有這東西的存在但是市面上買不到，<br>想找專業的人來做，想找有經驗的人來做，<br><span style="color: bisque; text-decoration: underline;">這裡就是您找到好幫手的地方！</span>
                     </p>
                   </div>
                 </div>
@@ -18,47 +18,87 @@
             </el-col>
           </el-row>
           <el-row >
-            <el-col span="24" class="aboutArea" style="height: 1000vh; width: 100%;">
-              <div class="aboutbox">
-                <div class="bgCircle">
-
-                </div>
-                <div class="textDecBox" style="text-align: center;">
-                  <div class="decText">
-                    <h1 style="color:white;font-weight: 700; font-size: 60px; text-shadow: 5px 5px 15px grey;">好幫手好任務</h1>
-
-                    <!-- hidden content that fade in later -->
-                     <h2 class="dec-h2">你最好的任務平台</h2>
-                     <h3 class="dec-h3">快速、方便、可靠</h3>
+            <el-col :span="24" class="aboutArea" style="height: 500vh; width: 100%; max-width: 1920px; ">
+              <div class="aboutbox-wrapper">
+                <div class="aboutbox" style="overflow: hidden;">
+                  <div class="bgCircle" ref="bgCircle">
+  
                   </div>
-
-                </div>
-                <div class="linkBox">
-<div class="aboutCards">
-  <div class="card card-1">
-    <img src="/s1.png" alt="">
-    <p>Intro 1</p>
-  </div>
-  <div class="card card-2">
-    <img src="/s2.png" alt="">
-    <p>Intro 2</p>
-  </div>
-  <div class="card card-3">
-    <img src="/s3.png" alt="">
-    <p>Intro 3</p>
-  </div>
-  <div class="card card-4">
-    <img src="/s4.png" alt="">
-    <p>Intro 4</p>
-  </div>
-</div>
-
-                </div>
-                <div class="textarea">
-
+                  <div class="textDecBox" style="text-align: center;"> 
+                    
+                    <div class="decText">
+                     <h1 class="decTexth1" style="color:white;font-weight: 700; font-size: 72px; text-shadow: 5px 5px 15px grey;">澳町海外代購</h1>
+  
+                      <!-- hidden content that fade in later -->
+                       <div class="decsub">
+                         <h2 class="dec-2" style="color: white;">你最好的任務平台</h2>
+                         <h3 class="dec-3" style="color:white">快速、方便、可靠</h3>
+    
+                         <h2 class="dec-4" style="color: white; margin-top: 30%;">您澳洲代購的專業平台，從在澳洲的購買到送貨，到進到台灣最後送到府上，你可以信賴的購貨平台。</h2>
+                         <el-button type="warning" size="large">了解更多</el-button>
+                       </div>
+                    </div>
+  
+                  </div>
+                  <!-- the cards section -->
+                  <div class="linkBox">
+                    <div class="aboutCards">
+                      <div class="card card-1">
+                        <img src="/p11.jpg" alt="" >
+                        <p>在澳洲當地尋找最合適的通路來採購保證品質</p>
+                      </div>
+                      <div class="card card-2">
+                        <img src="/p12.jpg" alt="" >
+                        <p>用最安全保障的方法來包裝物品，保障運送的過程維持該產品的品質</p>
+                      </div>
+                      <div class="card card-3" >
+                        <img src="/p13.jpg" alt="">
+                        <p>與專業安全的通路配合確保貨物在運送時維持最佳狀況</p>
+                      </div>
+                      <div class="card card-4" >
+                        <img src="/p14.jpg" alt="">
+                        <p>了解當地法規以及進出口流程確保貨物順利進出</p>
+                      </div>
+                      <div class="card card-5" >
+                        <img src="/p15.jpg" alt="">
+                        <p>與當地的物流配合，讓貨物安全快速到家</p>
+                      </div>
+                      <div class="card card-6">
+                        <img src="/p16.jfif" alt="">
+                        <p>確保貨物安全到您的手中</p>
+                      </div>
+                    </div>
+  
+                  </div>
+                  <div class="textarea">
+                  </div>
                 </div>
               </div>
-
+            </el-col>
+          </el-row>
+          <el-row style="padding: 0;margin: 0;border: 0;">
+            <el-col :span="24" style="background-color: white; width: 100%; height: 200vh; ">
+              <div class="newsArea">
+                <div class="newsWrap" style="margin-top: 100px;">
+                  <div class="titleBox" style="text-align: center;">
+                    <h1>最新消息</h1>
+                    <h3>不錯過任何資訊</h3>
+                  </div>
+                  <div class="carousalBox">
+                    <el-carousel height="500px">
+                      <el-carousel-item v-for="(item,index) in displayList" :key="index">
+                        <h3 class="small justify-center" text="2xl">{{ item.name }}</h3>
+                        <img :src="'/'+item.image" alt="" style="width: 100%;height: 100%;object-fit:cover;">
+                      </el-carousel-item>
+                    </el-carousel>
+                    
+                    <div class="newsBox" style="text-align: center;">
+                      <h1>網頁變動</h1>
+                    </div>
+                  </div>
+    
+                </div>
+              </div>
             </el-col>
           </el-row>
         </div>
@@ -75,7 +115,7 @@ import SplitText from "gsap/SplitText";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 // background slideshow
-const images=['/1.avif','2.avif'];
+const images=['/1.jpg','/2.jpg'];
 const index=ref(0);
 let intervalId=null;
 const hero=ref(null);
@@ -96,9 +136,45 @@ let tline=null;
 let splits=[];
 // change navbar style
 const homeNavbar=ref(null);
+// bigcircle animation
+const bgCircle=ref(null);
+// the carousal item
+const displayList=ref([
+  {name:'1', image:'p11.jpg'},
+  {name:'2', image:'p12.jpg'},
+  {name:'3', image:'p13.jpg'},
+
+])
 
 
 onMounted(()=>{
+  nextTick(()=>{
+  //---- add the newsarea section animation ----
+  const newsArea=document.querySelector(".newsArea");
+  const titleBox=newsArea.querySelector(".titleBox");
+  const carousalBox=newsArea.querySelector(".carousalBox");
+  const newsBox=newsArea.querySelector(".newsBox")
+
+  //initial state
+  gsap.set([titleBox, carousalBox, newsBox],{ opacity:0, y:50});
+
+  // timeline for scroll animation
+  const newsTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: newsArea,
+        start: "top top", 
+        end: "bottom+=200% top", 
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+      }
+    });
+  // Fade in title, carousel, news box one by one
+  newsTL.to(titleBox, { opacity: 1, y: 0, duration: 0.8 })
+        .to(carousalBox, { opacity: 1, y: 0, duration: 0.8 }, "+=0.2")
+        .to(newsBox, { opacity: 1, y: 0, duration: 0.8 }, "+=0.2");
+
+  // ---- aboutArea section animation ----
   // add cards animation
   const cards = gsap.utils.toArray(".aboutCards .card");
 
@@ -119,11 +195,18 @@ onMounted(()=>{
   .to(cards[2], { opacity: 0, y: 20, duration: 0.5 })
   .to(cards[3], { opacity: 1, y: 0, duration: 0.5 })
   .to(cards[3], { opacity: 0, y: 20, duration: 0.5 })
+  .to(cards[4], { opacity: 1, y: 0, duration: 0.5 })
+  .to(cards[4], { opacity: 0, y: 20, duration: 0.5 })
+  .to(cards[5], { opacity: 1, y: 0, duration: 0.5 })
+  .to(cards[5], { opacity: 0, y: 20, duration: 0.5 })
+  // bigcircle animation
+  .to(bgCircle.value,{scale:60,duration:0.5,ease:"none" })
   
 
   // change color when the text pass about area
-  gsap.to(".decText h1", {
-  color: "#4169e1",
+  gsap.to(".decTexth1", {
+  color: "white",
+  textShadow:"5px 5px 15px brown",
   duration: 1,
   scrollTrigger: {
     trigger: ".aboutArea",
@@ -135,17 +218,31 @@ onMounted(()=>{
   // text-dec box animation
   const heroEl=hero.value;
   const heroHeight=heroEl.offsetHeight;
-
   gsap.timeline({
     scrollTrigger:{
-      trigger:document.body,
+      trigger:".hero",
       start:"top top",
-      end:()=>heroHeight,
+      // end:()=>heroHeight,
+      end:"bottom top",
       scrub:1,
     }
   })
   .to(".decText",{opacity:1})
-  .to(".decText",{y:+400})
+  .to(".decText",{y:+200})
+
+  //show the deco text h2 h3
+  gsap.to(".decsub", {
+  scrollTrigger: {
+    trigger: ".aboutbox",
+    start: "top top",
+    toggleActions:"play none none reverse"
+  },
+  opacity: 1,
+  y: 50,
+  duration: 1,
+  stagger: 0.3
+  });
+
 
   // Select all target text elements
   const targets=[".animate-text",".subtitle",".animate-scroll"];
@@ -199,16 +296,10 @@ onMounted(()=>{
       })
     }
   })
-  //pin the aboutbox
-  ScrollTrigger.create({
-    trigger:".aboutbox",
-    start:"top top",
-    endTrigger:'.aboutArea',
-    end:"bottom bottom",
-    pin:true,
-    pinSpacing:true
-  })
+  // Always center the pinned aboutbox-wrapper in the center
+  
 });
+})
 
 // Watch background change and replay animation
 watch(index,()=>{
@@ -262,7 +353,7 @@ onBeforeUnmount(()=>{
   position: fixed;
   width: 100%;
   top: 0;
-  left: 0;
+ 
   z-index:100;
 }
 /* animate the text */
@@ -308,13 +399,26 @@ html, body {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, -30%);
   opacity: 0;
   pointer-events: none;
+  z-index:5;
+}
+.decsub{
+  opacity:0;
 }
 .aboutArea{
   position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
 
+}
+.aboutbox-wrapper{
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
 }
 .aboutbox{
   position: relative;
@@ -329,6 +433,9 @@ html, body {
   overflow: visible;
   width: 100%;
   height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 .dec-h2,.dec-h3{
   opacity:0;
@@ -336,15 +443,43 @@ html, body {
 }
 .aboutCards .card{
   position:absolute;
-  width: 200px;
+  width: 450px;
+  height: 450px;
   opacity: 0;
   transition: none;
   transform: translateY(50px); /* slide up as they fade in */
+  z-index:1;
+  border-radius: 50%;
+  color: white;
 }
-.card-1 { top: 20%; left: 20%; }
-.card-2 { top: 20%; right: 20%; }
-.card-3 { bottom: 25%; left: 20%; }
-.card-4 { bottom: 25%; right: 20%; }
+.aboutCards .card img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-1 { top: 20%; left: 10%; }
+.card-2 { top: 20%; right: 15%; }
+.card-3 { bottom: 35%; left: 10%; }
+.card-4 { bottom: 35%; right: 15%; }
+.card-5 { top: 40%; left: 15%; }
+.card-6 { top: 40%; right: 15%; }
+/* the cirle image */
+.bgCircle {
+  position: absolute; 
+  bottom: -30%;    
+  left: 50%;
+  transform: translateX(-50%) scale(0); 
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 10; 
+  pointer-events: none; 
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 
 
 </style>

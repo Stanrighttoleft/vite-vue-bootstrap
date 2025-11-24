@@ -18,12 +18,12 @@
           alt="Element logo"
         />
   
-        <el-button type="primary" :icon="Search" style="margin-left: 2rem;">人才招募</el-button>
+        <el-button type="primary" :icon="Search" style="margin-left: 2rem;">開始洽詢</el-button>
   
       </el-menu-item>
-      <el-menu-item index="1">規則介紹</el-menu-item>
-      <el-menu-item index="2">找案子</el-menu-item>
-      <el-menu-item index="3">找幫手</el-menu-item>
+      <el-menu-item index="1">澳洲代購</el-menu-item>
+      <el-menu-item index="2">購物流程</el-menu-item>
+      <el-menu-item index="3">聯絡我們</el-menu-item>
       <el-menu-item index="4">會員登入</el-menu-item>
       <el-sub-menu index="5" popper-class="custom-dropdown" >
         <template #title  >會員專區</template>
@@ -32,9 +32,9 @@
         <el-menu-item index="5-3">帳戶資料</el-menu-item>
         <el-sub-menu index="5-4">
           <template #title>帳戶資料明細</template>
-          <el-menu-item index="2-4-1">更新聯絡資料</el-menu-item>
-          <el-menu-item index="2-4-2">更新收付款資訊</el-menu-item>
-          <el-menu-item index="2-4-3">密碼更新</el-menu-item>
+          <el-menu-item index="5-4-1">更新聯絡資料</el-menu-item>
+          <el-menu-item index="5-4-2">更新收付款資訊</el-menu-item>
+          <el-menu-item index="5-4-3">密碼更新</el-menu-item>
         </el-sub-menu>
       </el-sub-menu>
     </el-menu>
