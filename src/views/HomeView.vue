@@ -157,6 +157,8 @@ import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 // background slideshow
 const images = ["/1.jpg", "/2.jpg"];
 const index = ref(0);
