@@ -109,7 +109,7 @@
         :span="24"
         style="background-color: white; width: 100%; height: 300vh"
       >
-        <div class="newsArea" style="height: 100vh;">
+        <div class="newsArea" style="height: 100vh">
           <div class="newsWrap" style="margin-top: 200px">
             <div class="titleBox" style="text-align: center">
               <h1>最新消息</h1>
@@ -133,8 +133,19 @@
               </el-carousel>
 
               <div class="newsBox" style="text-align: center">
-                <h1>網頁變動</h1>
-                <productshow/>
+                <h1>折扣商品</h1>
+                <div
+                  class="newshow"
+                  style="
+                    overflow-x: hidden;
+                    height: 500px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                  "
+                >
+                  <productshow />
+                </div>
               </div>
             </div>
           </div>
@@ -157,7 +168,7 @@ import Navbar from "@/components/Navbar.vue";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Productshow from "../components/Productshow.vue";
+import Productshow from "@/components/ProductShow.vue";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -206,13 +217,13 @@ onMounted(() => {
     //early teleporting trigger for newsArea
     ScrollTrigger.create({
       trigger: newsArea,
-      start: "top 60%",    
+      start: "top 60%",
       end: "top top",
       onEnter: () => {
         const st = ScrollTrigger.getById("newsPin");
         window.scrollTo({
-          top: st.start,    
-          behavior: "instant" 
+          top: st.start,
+          behavior: "instant",
         });
       },
     });
@@ -221,28 +232,26 @@ onMounted(() => {
     ScrollTrigger.create({
       id: "newsPin",
       trigger: newsArea,
-      start: "top top",    
+      start: "top top",
       end: "bottom+=500% top",
       pin: true,
       pinSpacing: true,
     });
 
-
     //animation run after the pin
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: newsArea,
-        start: "top top",   
-        end: "bottom top",
-        scrub: true,
-      }
-    })
-    .to(titleBox, { opacity: 1, y: 0,duration:0.5 })
-    .to(carousalBox, { opacity: 1, y: 0, duration:0.5 })
-    .to(newsBox, { opacity: 1, y: 0, duration:0.5 });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: newsArea,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      })
+      .to(titleBox, { opacity: 1, y: 0, duration: 0.5 })
+      .to(carousalBox, { opacity: 1, y: 0, duration: 0.5 })
+      .to(newsBox, { opacity: 1, y: 0, duration: 0.5 });
 
-
-    
     // ---- aboutArea section animation ----
     // add cards animation
     const cards = gsap.utils.toArray(".aboutCards .card");
