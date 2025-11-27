@@ -241,7 +241,7 @@ onMounted(() => {});
 .product-card {
   width: 200px;
   min-height: 280px;
-  background: #f6f6f6;
+  background: transparent;
   border-radius: 12px;
   margin-right: 12px;
   display: inline-block;
@@ -249,7 +249,7 @@ onMounted(() => {});
 
 .img-wrap {
   text-align: center;
-  background: #f6f6f6;
+  background: transparent;
   border-radius: 12px;
 }
 
@@ -259,7 +259,7 @@ onMounted(() => {});
 }
 
 .text-wrap {
-  background: #f6f6f6;
+  background: transparent;
   padding: 10px;
   border-radius: 12px;
 }

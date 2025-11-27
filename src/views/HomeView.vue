@@ -110,13 +110,13 @@
         style="background-color: white; width: 100%; height: 300vh"
       >
         <div class="newsArea" style="height: 100vh">
-          <div class="newsWrap" style="margin-top: 200px">
-            <div class="titleBox" style="text-align: center">
+          <div class="newsWrap">
+            <div class="titleBox" style="text-align: center; margin-top: 100px;">
               <h1>最新消息</h1>
               <h3>不錯過任何資訊</h3>
             </div>
             <div class="carousalBox">
-              <el-carousel height="500px" width="50%">
+              <el-carousel height="300px" width="50%">
                 <el-carousel-item
                   v-for="(item, index) in displayList"
                   :key="index"
@@ -131,23 +131,11 @@
                   />
                 </el-carousel-item>
               </el-carousel>
-
-              <div class="newsBox" style="text-align: center">
-                <h1>折扣商品</h1>
-                <div
-                  class="newshow"
-                  style="
-                    overflow-x: hidden;
-                    height: 500px;
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                  "
-                >
-                  <productshow />
-                </div>
-              </div>
+            
+              
             </div>
+            
+
           </div>
         </div>
       </el-col>
@@ -212,7 +200,7 @@ onMounted(() => {
     const newsBox = newsArea.querySelector(".newsBox");
 
     //initial state
-    gsap.set([titleBox, carousalBox, newsBox], { opacity: 0, y: 50 });
+    gsap.set([titleBox, newsBox], { opacity: 0, y: 50 });
 
     //early teleporting trigger for newsArea
     ScrollTrigger.create({
@@ -233,7 +221,7 @@ onMounted(() => {
       id: "newsPin",
       trigger: newsArea,
       start: "top top",
-      end: "bottom+=500% top",
+      end: "bottom+=50% top",
       pin: true,
       pinSpacing: true,
     });
@@ -248,8 +236,9 @@ onMounted(() => {
           scrub: true,
         },
       })
+      .to(".carousalBox", {clipPath: "inset(0 0 0% 0)",  ease: "none"
+      })
       .to(titleBox, { opacity: 1, y: 0, duration: 0.5 })
-      .to(carousalBox, { opacity: 1, y: 0, duration: 0.5 })
       .to(newsBox, { opacity: 1, y: 0, duration: 0.5 });
 
     // ---- aboutArea section animation ----
@@ -587,5 +576,10 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
+}
+/* newsArea */
+.carousalBox {
+  clip-path: inset(0 0 100% 0);  /* fully hidden from bottom */
+  will-change: clip-path;
 }
 </style>
