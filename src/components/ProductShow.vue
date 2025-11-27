@@ -29,154 +29,16 @@
           class="product-card"
           :initial="{ opacity: 1 }"
           :while-hover="{ opacity: 0.6, transition: { duration: 1 } }"
+          v-for="(item, index) in tryImage"
+          :key="index"
         >
           <div class="img-wrap">
-            <img :src="tryImage" alt="product" class="product-img" />
+            <img :src="item.image" alt="product" class="product-img" />
           </div>
 
           <div class="text-wrap">
-            <p class="info">精選零件海運到貨</p>
-            <p class="sub-info">由澳洲機械工廠精密加工</p>
-          </div>
-        </Motion>
-        <Motion
-          class="product-card"
-          :initial="{ opacity: 1 }"
-          :while-hover="{ opacity: 0.6, transition: { duration: 1 } }"
-        >
-          <div class="img-wrap">
-            <img :src="tryImage" alt="product" class="product-img" />
-          </div>
-
-          <div class="text-wrap">
-            <p class="info">精選零件海運到貨</p>
-            <p class="sub-info">由澳洲機械工廠精密加工</p>
-          </div>
-        </Motion>
-        <Motion
-          class="product-card"
-          :initial="{ opacity: 1 }"
-          :while-hover="{ opacity: 0.6, transition: { duration: 1 } }"
-        >
-          <div class="img-wrap">
-            <img :src="tryImage" alt="product" class="product-img" />
-          </div>
-
-          <div class="text-wrap">
-            <p class="info">精選零件海運到貨</p>
-            <p class="sub-info">由澳洲機械工廠精密加工</p>
-          </div>
-        </Motion>
-        <Motion
-          class="product-card"
-          :initial="{ opacity: 1 }"
-          :while-hover="{ opacity: 0.6, transition: { duration: 1 } }"
-        >
-          <div class="img-wrap">
-            <img :src="tryImage" alt="product" class="product-img" />
-          </div>
-
-          <div class="text-wrap">
-            <p class="info">精選零件海運到貨</p>
-            <p class="sub-info">由澳洲機械工廠精密加工</p>
-          </div>
-        </Motion>
-        <Motion
-          class="product-card"
-          :initial="{ opacity: 1 }"
-          :while-hover="{ opacity: 0.6, transition: { duration: 1 } }"
-        >
-          <div class="img-wrap">
-            <img :src="tryImage" alt="product" class="product-img" />
-          </div>
-
-          <div class="text-wrap">
-            <p class="info">精選零件海運到貨</p>
-            <p class="sub-info">由澳洲機械工廠精密加工</p>
-          </div>
-        </Motion>
-        <Motion
-          class="product-card"
-          :initial="{ opacity: 1 }"
-          :while-hover="{ opacity: 0.6, transition: { duration: 1 } }"
-        >
-          <div class="img-wrap">
-            <img :src="tryImage" alt="product" class="product-img" />
-          </div>
-
-          <div class="text-wrap">
-            <p class="info">精選零件海運到貨</p>
-            <p class="sub-info">由澳洲機械工廠精密加工</p>
-          </div>
-        </Motion>
-        <Motion
-          class="product-card"
-          :initial="{ opacity: 1 }"
-          :while-hover="{ opacity: 0.6, transition: { duration: 1 } }"
-        >
-          <div class="img-wrap">
-            <img :src="tryImage" alt="product" class="product-img" />
-          </div>
-
-          <div class="text-wrap">
-            <p class="info">精選零件海運到貨</p>
-            <p class="sub-info">由澳洲機械工廠精密加工</p>
-          </div>
-        </Motion>
-        <Motion
-          class="product-card"
-          :initial="{ opacity: 1 }"
-          :while-hover="{ opacity: 0.6, transition: { duration: 1 } }"
-        >
-          <div class="img-wrap">
-            <img :src="tryImage" alt="product" class="product-img" />
-          </div>
-
-          <div class="text-wrap">
-            <p class="info">精選零件海運到貨</p>
-            <p class="sub-info">由澳洲機械工廠精密加工</p>
-          </div>
-        </Motion>
-        <Motion
-          class="product-card"
-          :initial="{ opacity: 1 }"
-          :while-hover="{ opacity: 0.6, transition: { duration: 1 } }"
-        >
-          <div class="img-wrap">
-            <img :src="tryImage" alt="product" class="product-img" />
-          </div>
-
-          <div class="text-wrap">
-            <p class="info">精選零件海運到貨</p>
-            <p class="sub-info">由澳洲機械工廠精密加工</p>
-          </div>
-        </Motion>
-        <Motion
-          class="product-card"
-          :initial="{ opacity: 1 }"
-          :while-hover="{ opacity: 0.6, transition: { duration: 1 } }"
-        >
-          <div class="img-wrap">
-            <img :src="tryImage" alt="product" class="product-img" />
-          </div>
-
-          <div class="text-wrap">
-            <p class="info">精選零件海運到貨</p>
-            <p class="sub-info">由澳洲機械工廠精密加工</p>
-          </div>
-        </Motion>
-        <Motion
-          class="product-card"
-          :initial="{ opacity: 1 }"
-          :while-hover="{ opacity: 0.6, transition: { duration: 1 } }"
-        >
-          <div class="img-wrap">
-            <img :src="tryImage" alt="product" class="product-img" />
-          </div>
-
-          <div class="text-wrap">
-            <p class="info">精選零件海運到貨</p>
-            <p class="sub-info">由澳洲機械工廠精密加工</p>
+            <p class="info">{{ item.name }}</p>
+            <p class="sub-info">{{ item.info }}</p>
           </div>
         </Motion>
       </div>
@@ -196,7 +58,14 @@ const productDiv = ref(null);
 const scrollInterval = ref(null);
 const scrollAmount = 4000;
 const route = useRoute();
-const tryImage = ref("/1.jpg");
+const tryImage = ref([
+  {
+    image: "/blackfriday.jpg",
+    name: "澳洲黑五特價",
+    info: "黑五各項優惠限時折扣",
+  },
+  { image: "/clothes.jpg", name: "H&M商品優惠中", info: "換季商品展示優惠中" },
+]);
 
 const startScroll = (direction) => {
   if (!productDiv.value) return;
@@ -221,17 +90,17 @@ onMounted(() => {});
 .product-container {
   width: 100%;
   max-width: 1920px;
-  height: 300px;
+  height: 400px;
   padding: 50px;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .product-row {
   display: flex;
   width: 100%;
   flex-wrap: nowrap;
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
   white-space: nowrap;
   scroll-behavior: smooth;
@@ -239,7 +108,7 @@ onMounted(() => {});
 }
 
 .product-card {
-  width: 200px;
+  width: 400px;
   min-height: 280px;
   background: transparent;
   border-radius: 12px;
@@ -254,8 +123,8 @@ onMounted(() => {});
 }
 
 .product-img {
-  width: 160px;
-  height: 150px;
+  width: 350px;
+  height: 250px;
 }
 
 .text-wrap {
@@ -265,14 +134,13 @@ onMounted(() => {});
 }
 
 .info {
-  font-family: "標楷體";
   font-size: large;
-  margin: 0 0 6px;
+  margin: 0 0 6px 10px;
 }
 
 .sub-info {
   font-size: 14px;
-  margin: 0;
+  margin: 0 0 6px 10px;
 }
 
 /* Navigation */
@@ -304,7 +172,7 @@ onMounted(() => {});
 
 /* explicitly pin left and right */
 .nav-left {
-  left: 0%; /* distance from left edge */
+  left: 30%; /* distance from left edge */
 }
 
 .nav-right {

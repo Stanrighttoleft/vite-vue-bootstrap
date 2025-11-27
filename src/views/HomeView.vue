@@ -111,7 +111,7 @@
       >
         <div class="newsArea" style="height: 100vh">
           <div class="newsWrap">
-            <div class="titleBox" style="text-align: center; margin-top: 100px;">
+            <div class="titleBox" style="text-align: center; margin-top: 100px">
               <h1>最新消息</h1>
               <h3>不錯過任何資訊</h3>
             </div>
@@ -131,11 +131,10 @@
                   />
                 </el-carousel-item>
               </el-carousel>
-            
-              
             </div>
-            
-
+            <div class="productShow" style="overflow: hidden; padding: 5%">
+              <Productshow />
+            </div>
           </div>
         </div>
       </el-col>
@@ -186,9 +185,9 @@ const homeNavbar = ref(null);
 const bgCircle = ref(null);
 // the carousal item
 const displayList = ref([
-  { name: "1", image: "p11.jpg" },
-  { name: "2", image: "p12.jpg" },
-  { name: "3", image: "p13.jpg" },
+  { name: "BlackMore魚油300粒罐裝", image: "p11.jpg" },
+  { name: "小熊維他命組特價優惠中", image: "p12.jpg" },
+  { name: "車頂帳展示出清", image: "p13.jpg" },
 ]);
 
 onMounted(() => {
@@ -197,10 +196,10 @@ onMounted(() => {
     const newsArea = document.querySelector(".newsArea");
     const titleBox = newsArea.querySelector(".titleBox");
     const carousalBox = newsArea.querySelector(".carousalBox");
-    const newsBox = newsArea.querySelector(".newsBox");
+    const productShow = newsArea.querySelector(".productShow");
 
     //initial state
-    gsap.set([titleBox, newsBox], { opacity: 0, y: 50 });
+    gsap.set([titleBox, productShow], { opacity: 0, y: 50 });
 
     //early teleporting trigger for newsArea
     ScrollTrigger.create({
@@ -236,10 +235,9 @@ onMounted(() => {
           scrub: true,
         },
       })
-      .to(".carousalBox", {clipPath: "inset(0 0 0% 0)",  ease: "none"
-      })
+      .to(".carousalBox", { clipPath: "inset(0 0 0% 0)", ease: "none" })
       .to(titleBox, { opacity: 1, y: 0, duration: 0.5 })
-      .to(newsBox, { opacity: 1, y: 0, duration: 0.5 });
+      .to(".productShow", { opacity: 1, y: 0, duration: 0.5 });
 
     // ---- aboutArea section animation ----
     // add cards animation
@@ -579,7 +577,7 @@ body {
 }
 /* newsArea */
 .carousalBox {
-  clip-path: inset(0 0 100% 0);  /* fully hidden from bottom */
+  clip-path: inset(0 0 100% 0); /* fully hidden from bottom */
   will-change: clip-path;
 }
 </style>
