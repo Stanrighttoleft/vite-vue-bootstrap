@@ -16,7 +16,9 @@
         >開始洽詢</el-button
       >
     </el-menu-item>
-    <el-menu-item index="1">澳洲代購</el-menu-item>
+    <el-menu-item index="1"
+      ><router-link to="/shop"> 澳洲代購</router-link></el-menu-item
+    >
     <el-menu-item index="2">購物流程</el-menu-item>
     <el-menu-item index="3">聯絡我們</el-menu-item>
     <el-menu-item index="4">會員登入</el-menu-item>
@@ -42,6 +44,7 @@
 <script lang="ts" setup>
 import { ref, computed, onMounted } from "vue";
 import { Delete, Edit, Search, Share, Upload } from "@element-plus/icons-vue";
+import { RouterLink } from "vue-router";
 
 const activeIndex = ref("1");
 const handleSelect = (key: string, keyPath: string[]) => {

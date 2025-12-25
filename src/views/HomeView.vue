@@ -37,7 +37,7 @@
       <el-col
         :span="24"
         class="aboutArea"
-        style="height: 500vh; width: 100%; max-width: 1920px"
+        style="height: 300vh; width: 100%; max-width: 1920px"
       >
         <div class="aboutbox-wrapper">
           <div class="aboutbox" style="overflow: hidden">
@@ -139,6 +139,8 @@
         </div>
       </el-col>
     </el-row>
+
+    <Footer />
   </div>
 </template>
 
@@ -152,12 +154,19 @@ import {
   onBeforeUnmount,
 } from "vue";
 import Navbar from "@/components/Navbar.vue";
+import Footer from "../components/Footer.vue";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Productshow from "@/components/ProductShow.vue";
+import { onBeforeRouteLeave } from "vue-router";
 
 gsap.registerPlugin(ScrollTrigger);
+
+//this ensure that the page always kill scrolltrigger when router change
+onBeforeRouteLeave(() => {
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+});
 
 // background slideshow
 const images = ["/1.jpg", "/2.jpg"];
@@ -191,7 +200,11 @@ const displayList = ref([
 ]);
 
 onMounted(() => {
+  //make sure page start from the top
+  window.scrollTo(0, 0);
   nextTick(() => {
+    //make sure after mounted scrolltrigger killed
+    ScrollTrigger.refresh(true);
     //---- add the newsarea section animation ----
     const newsArea = document.querySelector(".newsArea");
     const titleBox = newsArea.querySelector(".titleBox");
@@ -418,7 +431,7 @@ onBeforeUnmount(() => {
 
 <style>
 .homepage {
-  height: 2000vh;
+  height: 730vh;
   width: 100%;
   max-width: 1920px;
   background-color: black;
